@@ -26,7 +26,7 @@
               <img [src]="p.image" alt="{{p.title}}" class="img-thumbnail" width="100px">
             </td>
             <td>{{p.title}}</td>
-            <td>{{p.price! | currency:'USD'}}</td>
+            <td>{{p.price!}}</td>
             <td>{{p.quantityOrdered}}</td>
           </tr>
   
@@ -34,7 +34,7 @@
             <td style="border: none;"></td>
             <td></td>
             <td>TOTAL</td>
-            <td>{{cartTotal | currency:'USD'}}</td>
+            <td>{{cartTotal}}</td>
   
           </tr>
           </tbody>

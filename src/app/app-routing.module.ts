@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./components/home/home.component";
-import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {CartComponent} from "./components/cart/cart.component";
 import {CheckoutComponent} from "./components/checkout/checkout.component";
 import {ProductComponent} from "./components/product/product.component";
 import {ThankyouComponent} from "./components/thankyou/thankyou.component";
+import { authGuard } from './shared/auth.guard';
+
 
 
 const routes: Routes = [
+  {path: "login", loadChildren: ()=> import('./modules/login/login.module').then(m => m.LoginModule), title: "Login"},
   {
-    path: '', component: HomeComponent
-  },
-  {
-    path: 'login', component: LoginComponent
+    path: 'home', component: HomeComponent
   },
   {
     path: 'register', component: RegisterComponent
   },
   {
-    path: 'product/:id', component: ProductComponent
+    path: 'product/:id', component: ProductComponent, canActivate: [authGuard],
   },
   {
     path: 'cart', component: CartComponent

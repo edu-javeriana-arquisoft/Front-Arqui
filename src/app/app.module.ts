@@ -10,13 +10,14 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ThankyouComponent } from './components/thankyou/thankyou.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { AuthResponseInterceptor } from './interceptor/auth-response.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,10 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    LoginComponent,
     ProductComponent,
     RegisterComponent,
-    ThankyouComponent
+    ThankyouComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,17 @@ import { HttpClientModule } from '@angular/common/http';
     ToastrModule.forRoot()
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthResponseInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
