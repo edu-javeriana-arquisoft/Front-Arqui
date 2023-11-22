@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserLoginRequest } from '../../entity/UserLoginRequest';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
 import { finalize } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserLoginRequest } from '../../entity/UserLoginRequest';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -47,7 +47,7 @@ export class LoginComponent {
             alert("Error, usuario o contraseña incorrecto")
           }
           else {
-            alert("Error con el servidor")
+            alert("Error con el servidor: ")
           }
         }
       })

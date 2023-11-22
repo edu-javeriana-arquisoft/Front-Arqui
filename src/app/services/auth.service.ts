@@ -55,7 +55,7 @@ export class AuthService {
         this.isLoggedIn = true;
         return oidc;
       })
-    );
+    )
   }
 
  
