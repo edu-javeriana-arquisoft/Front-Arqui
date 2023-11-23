@@ -24,14 +24,16 @@ export class CartService {
   private cartDataServer: CartModelServer = {
     data: [{
       product: {
-        id: 1,
-        name: 'Example Product',
-        category: 'Electronics',
-        description: 'This is an example product description.',
-        image: 'example-image.jpg',
-        price: 99.99,
-        quantity: 10,
-        images: '',
+        "id": 20,
+        "supplier": "f9503a4d-d6ba-4a6e-b95c-068c71e5a6ea",
+        "name": "Table",
+        "category": "Grocery",
+        "vendor": "Deckow, Herman and Kautzer",
+        "hasVendor": true,
+        "image": "https://picsum.photos/640/480/?image=756",
+        "hasImage": true,
+        "amount": 250,
+        "price": 1329.3870578110068
       },
       numInCart: 0
     }],
@@ -83,7 +85,7 @@ export class CartService {
         });
       });
     }
-    }
+}
   }
 
   CalculateSubTotal(index:any): number {
@@ -123,7 +125,7 @@ export class CartService {
         // 1. If chosen product is already in cart array
         if (index !== -1) {
 
-          if (quantity !== undefined && quantity <= prod.quantity) {
+          if (quantity !== undefined && quantity <= prod.amount) {
             // @ts-ignore
             this.cartDataServer.data[index].numInCart = this.cartDataServer.data[index].numInCart < prod.quantity ? quantity : prod.quantity;
           } else {
@@ -219,14 +221,16 @@ export class CartService {
         this.cartDataServer = {
           data: [{
             product: {
-                id: 1,
-                name: 'Example Product',
-                category: 'Electronics',
-                description: 'This is an example product description.',
-                image: 'example-image.jpg',
-                price: 99.99,
-                quantity: 10,
-                images: '',
+              "id": 20,
+              "supplier": "f9503a4d-d6ba-4a6e-b95c-068c71e5a6ea",
+              "name": "Table",
+              "category": "Grocery",
+              "vendor": "Deckow, Herman and Kautzer",
+              "hasVendor": true,
+              "image": "https://picsum.photos/640/480/?image=756",
+              "hasImage": true,
+              "amount": 250,
+              "price": 1329.3870578110068
               },
             numInCart: 0
           }],
@@ -310,14 +314,16 @@ export class CartService {
     this.cartDataServer = {
       data: [{
         product: {
-            id: 1,
-            name: 'Example Product',
-            category: 'Electronics',
-            description: 'This is an example product description.',
-            image: 'example-image.jpg',
-            price: 99.99,
-            quantity: 10,
-            images: '',
+          "id": 20,
+          "supplier": "f9503a4d-d6ba-4a6e-b95c-068c71e5a6ea",
+          "name": "Table",
+          "category": "Grocery",
+          "vendor": "Deckow, Herman and Kautzer",
+          "hasVendor": true,
+          "image": "https://picsum.photos/640/480/?image=756",
+          "hasImage": true,
+          "amount": 250,
+          "price": 1329.3870578110068
           },
         numInCart: 0
       }],

@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.productService.getAllProducts(8).subscribe((prods: serverResponse ) => {
-      this.products = prods.products;
+    this.productService.getAllProducts().subscribe(prods => {
+      this.products = prods;
       console.log(this.products);
     });
   }

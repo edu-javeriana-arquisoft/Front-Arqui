@@ -13,12 +13,8 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  getAllProducts(limitOfResults=10): Observable<serverResponse> {
-    return this.http.get<serverResponse>(this.url + 'products', {
-      params: {
-        limit: limitOfResults.toString()
-      }
-    });
+  getAllProducts(limitOfResults=10): Observable<ProductModelServer[]> {
+    return this.http.get<ProductModelServer[]>(this.url + 'Products/GetAllProducts');
   }
 
   getSingleProduct(id: Number): Observable<ProductModelServer> {
@@ -26,7 +22,7 @@ export class ProductService {
   }
 
   getProductsFromCategory(catName: String): Observable<ProductModelServer[]> {
-    return this.http.get<ProductModelServer[]>(this.url + 'products/category/' + catName);
+    return this.http.get<ProductModelServer[]>(this.url + 'Products/GetProductsByCategory/' + catName);
   }
 
 }

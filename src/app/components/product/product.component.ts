@@ -38,8 +38,8 @@ export class ProductComponent implements AfterViewInit, OnInit {
       this.id = prodId;
       this.productService.getSingleProduct(this.id!).subscribe(prod => {
         this.product = prod;
-        if (prod.images !== null) {
-          this.thumbimages = prod.images.split(';');
+        if (prod.image !== null) {
+          this.thumbimages = prod.image.split(';');
         }
 
       });
@@ -92,12 +92,12 @@ export class ProductComponent implements AfterViewInit, OnInit {
 
   Increase() {
     let value = parseInt(this.quantityInput.nativeElement.value);
-    if (this.product!.quantity >= 1){
+    if (this.product!.amount >= 1){
       value++;
 
-      if (value > this.product!.quantity) {
+      if (value > this.product!.amount) {
         // @ts-ignore
-        value = this.product.quantity;
+        value = this.product?.amount;
       }
     } else {
       return;
@@ -108,7 +108,7 @@ export class ProductComponent implements AfterViewInit, OnInit {
 
   Decrease() {
     let value = parseInt(this.quantityInput.nativeElement.value);
-    if (this.product!.quantity > 0){
+    if (this.product!.amount > 0){
       value--;
 
       if (value <= 0) {

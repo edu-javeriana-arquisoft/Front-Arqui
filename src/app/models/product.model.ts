@@ -1,17 +1,16 @@
 export interface ProductModelServer {
     id: number;
+    supplier:string;
     name: string;
     category: string;
-    description: string;
+    vendor: string,
+    hasVendor: boolean;
     image: string;
-    price: number;
-    quantity: number;
-    images: string;
+    hasImage: boolean;
+    amount: number,
+    price: number
   }
-  
-  
   export interface serverResponse  {
-    count: number;
     products: ProductModelServer[]
   };
   

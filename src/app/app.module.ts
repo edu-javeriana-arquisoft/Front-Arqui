@@ -18,6 +18,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthResponseInterceptor } from './interceptor/auth-response.interceptor';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { ProductsByCategoryComponent } from './components/products-by-category/products-by-category.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { AuthResponseInterceptor } from './interceptor/auth-response.interceptor
     ProductComponent,
     RegisterComponent,
     ThankyouComponent,
+    CategoriesComponent,
+    ProductsByCategoryComponent,
   ],
   imports: [
     BrowserModule,
